@@ -1,0 +1,97 @@
+.about {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: url("../img/decor/decor-coin-two.svg");
+    top: -233px;
+    right: -197px;
+  }
+
+  &::after {
+    position: absolute;
+    content: url("../img/decor/decor-coin-one.svg");
+    left: -190px;
+    bottom: -201px;
+  }
+}
+
+.about__wrapper {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  background: $gradient-about;
+  min-height: 966px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 231px;
+  margin-bottom: 178px;
+  padding: 78px 132px 133px;
+
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
+
+  h2 {
+    margin: 0;
+    color: $very-dark-blue;
+    @include font(48, 59, 800);
+    padding-bottom: 47px;
+  }
+
+  &::before {
+    position: absolute;
+    content: url("../img/decor/decor-about-big.svg");
+    z-index: -2;
+    left: -248px;
+    top: -313px;
+  }
+
+  &::after {
+    position: absolute;
+    content: url("../img/decor/decor-about-small.svg");
+    z-index: -2;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.about__descr {
+  @include font(20, 27, 500);
+  color: $very-dark-blue;
+  padding: 0 70px 96px;
+  text-align: center;
+}
+
+.about__list {
+  @include reset-list;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  gap: 30px;
+}
+
+.about__list-item {
+  width: 438px;
+  min-height: 194px;
+  padding: 30px 26px 33px;
+  background-color: $dark-gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    @include font(23, 28, 800);
+    color: $title-card;
+    padding-bottom: 15px;
+  }
+
+  p {
+    @include font(18, 22, 700);
+    color: $main-white;
+    text-align: center;
+  }
+}

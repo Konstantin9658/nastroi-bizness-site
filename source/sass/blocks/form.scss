@@ -1,0 +1,87 @@
+.form {
+  max-width: 1030px;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 552px;
+  background: $gradient-card;
+  display: flex;
+  flex-flow: column wrap;
+  padding: 33px 0 36px;
+  position: relative;
+
+  p {
+    @include font(40, 49, 800);
+    color: $main-black;
+    margin: 0;
+    text-align: center;
+  }
+
+  &::before {
+    position: absolute;
+    content: url("../img/decor/decor-coin-form.svg");
+    top: 207px;
+    right: -253px;
+    z-index: -1;
+  }
+}
+
+.form__wrapper {
+  width: 660px;
+  margin: 0 auto;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: url("../img/icons/icon-decor-form.svg");
+    right: 0;
+    top: 144px;
+  }
+}
+
+.form__fields {
+  @include reset-list;
+  width: 391px;
+  margin-bottom: 16px;
+  margin-top: 53px;
+}
+
+.form__fields-item {
+
+  input,
+  textarea {
+    width: 100%;
+    border: 2px solid $main-black;
+    border-radius: $radius15;
+    background-color: $main-white;
+    @include font(16, 20, 500);
+    color: $main-black;
+    padding: 0 20px;
+
+    &::placeholder {
+      color: $placeholder;
+    }
+
+    &:hover,
+    &:focus-visible {
+      transition: $trans--300;
+      border-color: $strong-orange;
+
+      &::placeholder {
+        transition: $trans--300;
+        color: $main-black;
+      }
+    }
+  }
+
+  input {
+    min-height: 43px;
+    margin-bottom: 21px;
+  }
+
+  textarea {
+    resize: none;
+    min-height: 120px;
+    padding-top: 12px;
+    padding-bottom: 20px;
+  }
+}

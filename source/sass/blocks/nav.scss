@@ -1,0 +1,59 @@
+.nav__list,
+.nav__contact-list {
+  @include reset-list;
+  display: flex;
+}
+
+.nav__list {
+  margin-right: 70px;
+}
+
+.nav__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.nav__item {
+  @include font(14, 17, 400);
+  padding: 4px 15px;
+  margin-right: 2px;
+
+  a {
+    color: $main-white;
+  }
+
+  &:hover,
+  &:focus-visible {
+    outline: 1px solid $vivid-yellow;
+    transition: $trans--300;
+
+    a {
+      color: $vivid-yellow;
+      transition: $trans--300;
+    }
+  }
+}
+
+.nav__contact-item {
+  margin-right: 8px;
+
+  a {
+    display: flex;
+    align-items: center;
+    @include font(14, 17, 400);
+    color: $main-white;
+  }
+
+  span {
+    padding-left: 7px;
+  }
+
+  &:hover,
+  &:focus-visible {
+
+    span {
+      transition: $trans--300;
+      color: $vivid-yellow;
+    }
+  }
+}

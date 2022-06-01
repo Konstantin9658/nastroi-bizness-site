@@ -1,0 +1,124 @@
+.how-it-works {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: url("../img/decor/decor-coin-two.svg");
+    bottom: 0;
+    left: -109px;
+  }
+}
+
+.how-it-works__title {
+  width: 611px;
+  margin: 201px auto 0;
+  min-height: 104px;
+  border: 1px solid $light-gray;
+  @include flex-center;
+
+  h2 {
+    margin: 0;
+    @include font(48, 59, 800);
+    color: $light-gray;
+  }
+}
+
+.how-it-works__list {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 144px;
+  justify-content: center;
+  padding: 0;
+  counter-reset: section;
+  list-style-type: none;
+}
+
+.how-it-works__item {
+  width: 340px;
+  min-height: 290px;
+  position: relative;
+  margin-right: 60px;
+  margin-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    margin: 0;
+    @include font(20, 24, 900);
+    color: $title-features;
+    text-align: right;
+  }
+
+  &:nth-child(3n + 3) {
+    margin-right: 0;
+  }
+
+  &:last-child {
+    width: 716px;
+    align-self: center;
+    margin-right: 0;
+  }
+
+  &::before {
+    counter-increment: section;
+    content: counters(section, "") ".";
+    position: absolute;
+    @include font(200, 139, 900);
+    color: $light-gray;
+    top: 0;
+    left: 0;
+  }
+
+  // &::after {
+  //   position: absolute;
+  //   content: "";
+  //   width: 36px;
+  //   height: 36px;
+  //   background-color: $light-gray;
+  //   bottom: 0;
+  // }
+}
+
+.how-it-works__item-title {
+  margin-left: auto;
+  width: 197px;
+  min-height: 72px;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: url("../img/icons/icon-arrow-features.svg");
+    right: 0;
+    bottom: -76px;
+  }
+}
+
+.how-it-works__content {
+  border-top: 5px solid $light-gray;
+  margin-top: 98px;
+  padding-top: 15px;
+  padding-right: 56px;
+
+  p {
+    @include font(16, 20, 600);
+    color: $light-gray;
+    margin: 0;
+  }
+}
+
+.how-it-works__finish {
+  width: 523px;
+  margin-left: auto;
+
+  h3,
+  p {
+    @include font(40, 49, 900);
+    text-align: left;
+    color: $title-card;
+    margin: 0;
+  }
+}
+
+.how-it-works__finish-content {
+  border-top: 8px solid $title-card;
+}

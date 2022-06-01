@@ -1,0 +1,52 @@
+// Color
+
+$main-black: #000000;
+$main-white: #ffffff;
+$mostly-black: #242424;
+$light-gray: #e8e8e8;
+$dark-gray: #333333;
+$very-dark-blue: #1d1d1e;
+$pale-yellow: #fff1ae;
+$vivid-yellow: #fed524;
+$soft-yellow: #fbdd51;
+$light-yellow: #ffe266;
+$strong-orange: #c06903;
+
+$title-card: #fed526;
+$title-audit: #e8be05;
+$title-features: #fed523;
+$partners-card: #fff1ae;
+
+$decor-circle: #fce67f;
+
+$placeholder: #bdbcbc;
+
+// Radius
+
+$radius10: 10px;
+$radius15: 15px;
+
+// Gradient
+
+$gradient-about: linear-gradient(180deg, $soft-yellow 0%, #E8BC00 100%);
+$gradient-card: linear-gradient(180deg, $soft-yellow 0%, #FFD521 100%);
+
+// Viewports
+
+$min-width: 320px;
+$mobile-width: 767px;
+$tablet-width: 1023px;
+$desktop-width: 1024px;
+
+//fonts
+
+$montserrat: "Montserrat Alternates", "Arial", sans-serif;
+
+//transition
+
+$trans--300:  0.3s ease-in-out;
+
+//retina
+
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;
