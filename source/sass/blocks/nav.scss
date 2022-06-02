@@ -1,3 +1,12 @@
+.nav {
+  position: relative;
+
+  @media (max-width: 1279px) {
+    // width: 300px;
+    // min-height: 300px;
+  }
+}
+
 .nav__list,
 .nav__contact-list {
   @include reset-list;
@@ -6,17 +15,53 @@
 
 .nav__list {
   margin-right: 70px;
+
+  @media (max-width: 1279px) {
+    flex-direction: column;
+    margin: 0;
+    align-items: center;
+  }
+}
+
+.nav__contact-list {
+
+  @media (max-width: 1279px) {
+    margin-top: auto;
+    margin-bottom: 30px;
+  }
 }
 
 .nav__wrapper {
   display: flex;
   align-items: center;
+
+  @media (max-width: 1279px) {
+    width: 300px;
+    min-height: 400px;
+    opacity: 0;
+    visibility: hidden;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    background-color: $very-dark-blue;
+
+    &--show {
+      opacity: 1;
+      transition: $trans--300;
+      visibility: visible;
+      padding-top: 60px;
+    }
+  }
 }
 
 .nav__item {
   @include font(14, 17, 400);
   padding: 4px 15px;
-  margin-right: 2px;
+
+  @media (max-width: 1279px) {
+    margin-bottom: 10px;
+  }
 
   a {
     color: $main-white;
@@ -36,6 +81,30 @@
 
 .nav__contact-item {
   margin-right: 8px;
+  transition: $trans--300;
+
+  @media (max-width: 1279px) {
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover,
+    &:focus-visible {
+
+      span {
+        transition: $trans--300;
+        opacity: 1;
+        visibility: visible;
+        width: auto;
+        height: auto;
+      }
+
+      &:last-child {
+        margin-right: 8px;
+      }
+    }
+  }
 
   a {
     display: flex;
@@ -46,6 +115,13 @@
 
   span {
     padding-left: 7px;
+
+    @media (max-width: 1279px) {
+      width: 0;
+      height: 0;
+      visibility: hidden;
+      opacity: 0;
+    }
   }
 
   &:hover,

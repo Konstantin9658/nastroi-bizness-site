@@ -7,6 +7,7 @@
     transform: rotate(30deg);
     left: calc((100% - 929px)/2);
     top: 515px;
+    z-index: -1;
   }
 
   &::before {
@@ -41,14 +42,17 @@
 }
 
 .solved-tasks__wrapper {
-  margin-top: 135px;
-  // overflow: auto;
   position: relative;
+  width: 100%;
+  padding: 0 20px;
+  margin: 135px auto 0;
+  overflow: hidden;
 }
 
 .solved-tasks__list {
   @include reset-list;
   display: flex;
+  width: 100%;
 }
 
 .solved-tasks__item {

@@ -9,6 +9,10 @@
   margin: 0 auto;
   min-height: 59px;
   align-items: center;
+
+  @media (max-width: 1279px) {
+    justify-content: space-between;
+  }
 }
 
 .header__nav {

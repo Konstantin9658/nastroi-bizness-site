@@ -6,6 +6,39 @@
   border: none;
   transition: $trans--300;
 
+  &--burger {
+    display: none;
+
+    @media (max-width: 1279px) {
+      background-image: url("../img/icons/icon-burger.svg");
+    }
+  }
+
+  &--close {
+    @media (max-width: 1279px) {
+      background-image: url("../img/icons/icon-close.svg");
+    }
+  }
+
+  &--burger,
+  &--close {
+
+    @media (max-width: 1279px) {
+      width: 34px;
+      height: 34px;
+      background-repeat: no-repeat;
+      display: block;
+      margin-left: auto;
+      position: relative;
+      z-index: 5;
+
+      &:hover {
+        transition: $trans--300;
+        background-color: $vivid-yellow;
+      }
+    }
+  }
+
   &--submit {
     width: 286px;
     min-height: 53px;
@@ -45,6 +78,10 @@
   &--swiper {
     width: 27px;
     height: 24px;
+
+    &:disabled {
+      visibility: hidden;
+    }
 
     &:hover {
 
