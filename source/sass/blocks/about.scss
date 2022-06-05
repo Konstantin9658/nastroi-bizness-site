@@ -3,9 +3,20 @@
 
   &::before {
     position: absolute;
-    content: url("../img/decor/decor-coin-two.svg");
+    content: "";
+    background-image: url("../img/decor/decor-coin-two.svg");
+    background-size: cover;
+    width: 254px;
+    height: 255px;
     top: -233px;
     right: -197px;
+
+    @media (max-width: $tablet-width) {
+      top: -208px;
+      right: -39px;
+      width: 189px;
+      height: 190px;
+    }
   }
 
   &::after {
@@ -22,24 +33,14 @@
   overflow: hidden;
   background: $gradient-about;
   min-height: 966px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-top: 231px;
   margin-bottom: 178px;
-  padding: 78px 132px 133px;
+  padding: 78px 0 133px;
 
-  h2,
-  h3,
-  p {
-    margin: 0;
-  }
-
-  h2 {
-    margin: 0;
-    color: $very-dark-blue;
-    @include font(48, 59, 800);
-    padding-bottom: 47px;
+  @media (max-width: $tablet-width) {
+    margin-top: 0;
+    padding-top: 71px;
+    padding-bottom: 117px;
   }
 
   &::before {
@@ -59,12 +60,41 @@
   }
 }
 
+.about__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 946px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+
+  h2,
+  h3,
+  p {
+    margin: 0;
+  }
+
+  h2 {
+    margin: 0;
+    color: $very-dark-blue;
+    @include font(48, 59, 800);
+    padding-bottom: 47px;
+  }
+}
+
 .about__descr {
   @include font(20, 24, 400);
   color: $very-dark-blue;
   padding: 0 21px 55px;
   letter-spacing: -0.4px;
   text-align: center;
+
+  @media (max-width: $tablet-width) {
+    @include resize-txt(16, 20);
+    padding: 0 0px 74px;
+    letter-spacing: -0.1px;
+  }
 }
 
 .about__list {
@@ -73,10 +103,15 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
   gap: 30px;
+
+  @media (max-width: $tablet-width) {
+    grid-template-columns: 1fr;
+    row-gap: 25px;
+  }
 }
 
 .about__list-item {
-  width: 438px;
+  width: 100%;
   min-height: 194px;
   padding: 30px 26px 33px;
   background-color: $dark-gray;
@@ -84,15 +119,34 @@
   flex-direction: column;
   align-items: center;
 
+  @media (max-width: $tablet-width) {
+    min-height: 166px;
+    padding: 38px 103px 26px;
+
+    br {
+      display: none;
+    }
+  }
+
   h3 {
     @include font(23, 28, 800);
     color: $title-card;
     padding-bottom: 15px;
+    text-align: center;
+
+    @media (max-width: $tablet-width) {
+      @include resize-txt(18, 22);
+      padding-bottom: 19px;
+    }
   }
 
   p {
     @include font(18, 22, 700);
     color: $main-white;
     text-align: center;
+
+    @media (max-width: $tablet-width) {
+      @include resize-txt(16, 20);
+    }
   }
 }

@@ -6,6 +6,12 @@
   margin: 0 auto;
   padding: 0 0 30px 0;
   min-height: 605px;
+
+  @media (max-width: $tablet-width) {
+    min-height: 1174px;
+    background-position: right bottom;
+    background-size: 766px 645px;
+  }
 }
 
 .intro__wrapper {
@@ -13,13 +19,21 @@
   width: 100%;
   padding-top: 86px;
 
+  @media (max-width: $tablet-width) {
+    padding-top: 63px;
+
+    button {
+      margin-top: 24px;
+    }
+  }
+
   h1,
   p {
     margin: 0;
   }
 
   h1 {
-    @include font(48, 59, 900);
+    @include font(50, 61, 900);
     color: $vivid-yellow;
     padding-bottom: 37px;
   }
