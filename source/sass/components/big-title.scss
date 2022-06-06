@@ -1,0 +1,17 @@
+.big-title {
+  position: absolute;
+  @include font(85, 104, 800);
+  color: $mostly-black;
+  width: 100%;
+  text-align: center;
+  z-index: -1;
+  top: 0;
+
+  @media (max-width: $tablet-width) {
+    @include resize-txt(74, 91);
+  }
+
+  @media (max-width: $mobile-width) {
+    @include resize-txt(29, 102);
+  }
+}

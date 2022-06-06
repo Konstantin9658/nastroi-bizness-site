@@ -13,6 +13,15 @@
   @media (max-width: 1279px) {
     justify-content: space-between;
   }
+
+  @media (max-width: $tablet-width) {
+    background-color: $grayish-blue;
+    min-height: 104px;
+  }
+
+  @media (max-width: $mobile-width) {
+    min-height: 80px;
+  }
 }
 
 .header__nav {
@@ -21,4 +30,9 @@
 
 .header__logo {
   margin-right: 70px;
+
+  @media (max-width: $tablet-width) {
+    width: 214px;
+    height: 36px;
+  }
 }

@@ -3,13 +3,37 @@
   padding-top: 68px;
   position: relative;
 
+  @media (max-width: $tablet-width) {
+    padding-top: 89px;
+    min-height: 831px;
+  }
+
+  @media (max-width: $mobile-width) {
+    min-height: 576px;
+  }
+
   &::before {
     position: absolute;
-    content: url("../img/decor/decor-grid-bcg.svg");
+    content: "";
+    background-image: url("../img/decor/decor-grid-bcg.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 757px;
     height: 565px;
     top: 0;
     left: calc((100% - 1657px) / 2);
+
+    @media (max-width: $tablet-width) {
+      width: 831px;
+      height: 620px;
+      transform: rotate(90deg);
+      top: 146px;
+      left: -177px;
+    }
+
+    @media (max-width: $mobile-width) {
+      display: none;
+    }
   }
 }
 
@@ -23,10 +47,26 @@
 
   &::before {
     position: absolute;
-    content: url("../img/audit/audit-img.png");
+    content: "";
+    background-image: url("../img/audit/audit-img.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 260px;
+    height: 336px;
     z-index: 2;
-    left: calc((100% + 278px) / 2);
-    bottom: -20px;
+    right: calc((100% - 859px) / 2);
+    bottom: -15px;
+
+    @media (max-width: $tablet-width) {
+      right: 96px;
+    }
+
+    @media (max-width: $mobile-width) {
+      width: 176px;
+      height: 244px;
+      bottom: -10px;
+      right: 7px;
+    }
   }
 
   h2,
@@ -38,6 +78,18 @@
     @include font(48, 59, 700);
     color: $title-audit;
     padding-bottom: 21px;
+    max-width: 543px;
+    width: 100%;
+
+    @media (max-width: $tablet-width) {
+      padding-bottom: 46px;
+    }
+
+    @media (max-width: $mobile-width) {
+      @include resize-txt(26, 32);
+      padding-bottom: 30px;
+      padding-left: 7px;
+    }
   }
 
   p {
@@ -45,6 +97,16 @@
     color: $main-white;
     max-width: 499px;
     padding-bottom: 37px;
+
+    @media (max-width: $tablet-width) {
+      padding-bottom: 49px;
+    }
+
+    @media (max-width: $mobile-width) {
+      @include resize-txt(16, 24);
+      padding-left: 10px;
+      padding-bottom: 30px;
+    }
   }
 }
 
@@ -55,21 +117,62 @@
   position: relative;
   z-index: 1;
 
+  @media (max-width: $tablet-width) {
+    min-height: 686px;
+    padding: 87px 0 60px 50px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding: 53px 5px;
+    min-height: 576px;
+  }
+
   &::before,
   &::after {
     position: absolute;
     z-index: -1;
+    content: "";
+    background-image: url("../img/decor/decor-audit-bubble.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media (max-width: $mobile-width) {
+      transform: rotate3d(0, 1, 0, 180deg);
+    }
   }
 
   &::before {
-    content: url("../img/decor/decor-audit-bubble.svg");
     right: calc((100% - 1142px) / 2);
     bottom: 28px;
+    width: 216px;
+    height: 283px;
+
+    @media (max-width: $tablet-width) {
+      right: 26px;
+    }
+
+    @media (max-width: $mobile-width) {
+      width: 138px;
+      height: 180px;
+      right: 114px;
+      bottom: 50px;
+    }
   }
 
   &::after {
-    content: url("../img/decor/decor-audit-bubble-s.svg");
-    bottom: -3px;
+    bottom: 0;
     right: calc((100% - 410px) / 2);
+    width: 172px;
+    height: 225px;
+
+    @media (max-width: $tablet-width) {
+      right: 296px;
+    }
+
+    @media (max-width: $mobile-width) {
+      width: 76px;
+      height: 99px;
+      right: 229px;
+    }
   }
 }

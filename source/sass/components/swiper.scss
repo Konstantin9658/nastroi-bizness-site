@@ -7,4 +7,12 @@
   position: absolute;
   bottom: 7px;
   right: calc((100% - 1050px) / 2);
+
+  @media (max-width: $tablet-width) {
+    right: 15px;
+  }
+
+  @media (max-width: $mobile-width) {
+    bottom: 25px;
+  }
 }

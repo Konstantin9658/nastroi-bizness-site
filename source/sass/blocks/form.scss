@@ -9,32 +9,87 @@
   padding: 33px 0 36px;
   position: relative;
 
+  @media (max-width: $tablet-width) {
+    padding: 71px 0 65px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding-top: 42px;
+    min-height: 806px;
+  }
+
   p {
     @include font(40, 49, 800);
     color: $main-black;
     margin: 0;
     text-align: center;
+
+    @media (max-width: $mobile-width) {
+      @include resize-txt(26, 32);
+      text-align: left;
+    }
   }
 
   &::before {
     position: absolute;
-    content: url("../img/decor/decor-coin-form.svg");
+    content: "";
+    background-image: url("../img/decor/decor-coin-form.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 151px;
+    height: 242px;
     top: 207px;
     right: -253px;
     z-index: -1;
+
+    @media (max-width: $tablet-width) {
+      top: -178px;
+      width: 103px;
+      right: 0;
+      height: 158px;
+    }
+
+    @media (max-width: $mobile-width) {
+      display: none;
+    }
   }
 }
 
 .form__wrapper {
-  width: 660px;
+  max-width: 660px;
+  width: 100%;
   margin: 0 auto;
   position: relative;
 
+  @media (max-width: $mobile-width) {
+    padding: 0 5px;
+  }
+
   &::before {
     position: absolute;
-    content: url("../img/icons/icon-decor-form.svg");
-    right: 0;
-    top: 144px;
+    content: "";
+    background-image: url("../img/icons/icon-decor-form.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 204px;
+    height: 227px;
+    right: 0px;
+    bottom: 120px;
+
+    @media (max-width: $tablet-width) {
+      width: 225px;
+      height: 251px;
+      right: -11px;
+      bottom: 92px;
+    }
+
+    @media (max-width: $mobile-width) {
+      width: 176px;
+      height: 196px;
+      bottom: -245px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 }
 
@@ -43,6 +98,14 @@
   width: 391px;
   margin-bottom: 16px;
   margin-top: 53px;
+
+  @media (max-width: $tablet-width) {
+    margin-top: 44px;
+  }
+
+  @media (max-width: $mobile-width) {
+    width: 100%;
+  }
 }
 
 .form__fields-item {
@@ -56,6 +119,11 @@
     @include font(16, 20, 500);
     color: $main-black;
     padding: 0 20px;
+
+    @media (max-width: $mobile-width) {
+      @include resize-txt(12, 15);
+      padding: 0 15px;
+    }
 
     &::placeholder {
       color: $placeholder;

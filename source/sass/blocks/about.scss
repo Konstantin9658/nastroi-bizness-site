@@ -8,11 +8,12 @@
     background-size: cover;
     width: 254px;
     height: 255px;
-    top: -233px;
-    right: -197px;
+    top: -278px;
+    right: -161px;
+    z-index: -1;
 
     @media (max-width: $tablet-width) {
-      top: -208px;
+      top: -149px;
       right: -39px;
       width: 189px;
       height: 190px;
@@ -21,9 +22,20 @@
 
   &::after {
     position: absolute;
-    content: url("../img/decor/decor-coin-one.svg");
-    left: -190px;
-    bottom: -201px;
+    content: "";
+    background-image: url("../img/decor/decor-coin-one.svg");
+    background-size: cover;
+    width: 121px;
+    height: 150px;
+    left: -158px;
+    bottom: -136px;
+
+    @media (max-width: $tablet-width) {
+      width: 116px;
+      height: 137px;
+      left: -31px;
+      bottom: -160px;
+    }
   }
 }
 
@@ -33,14 +45,20 @@
   overflow: hidden;
   background: $gradient-about;
   min-height: 966px;
-  margin-top: 231px;
-  margin-bottom: 178px;
-  padding: 78px 0 133px;
+  margin-top: 228px;
+  margin-bottom: 131px;
+  padding: 60px 0 124px;
 
   @media (max-width: $tablet-width) {
     margin-top: 0;
     padding-top: 71px;
-    padding-bottom: 117px;
+    padding-bottom: 120px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding-top: 40px;
+    padding-bottom: 54px;
+    margin-bottom: 36px;
   }
 
   &::before {
@@ -69,6 +87,10 @@
   padding: 0 20px;
   margin: 0 auto;
 
+  @media (max-width: $mobile-width) {
+    padding: 0 1px;
+  }
+
   h2,
   h3,
   p {
@@ -79,21 +101,36 @@
     margin: 0;
     color: $very-dark-blue;
     @include font(48, 59, 800);
-    padding-bottom: 47px;
+    padding-bottom: 34px;
+
+    @media (max-width: $tablet-width) {
+      padding-bottom: 49px;
+    }
+
+    @media (max-width: $mobile-width) {
+      @include resize-txt(26, 32);
+      padding-bottom: 30px;
+    }
   }
 }
 
 .about__descr {
   @include font(20, 24, 400);
   color: $very-dark-blue;
-  padding: 0 21px 55px;
-  letter-spacing: -0.4px;
+  padding: 0 10px 55px;
+  letter-spacing: -0.1px;
   text-align: center;
 
   @media (max-width: $tablet-width) {
-    @include resize-txt(16, 20);
-    padding: 0 0px 74px;
+    @include resize-txt(16, 22);
+    padding: 0 0px 72px;
     letter-spacing: -0.1px;
+  }
+
+  @media (max-width: $mobile-width) {
+    text-align: left;
+    @include resize-txt(14, 20);
+    padding-bottom: 30px;
   }
 }
 
@@ -107,6 +144,11 @@
   @media (max-width: $tablet-width) {
     grid-template-columns: 1fr;
     row-gap: 25px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding: 0 3px;
+    row-gap: 13px;
   }
 }
 
@@ -125,6 +167,16 @@
 
     br {
       display: none;
+    }
+  }
+
+  @media (max-width: $mobile-width) {
+    min-height: 166px;
+    padding: 22px 5px 26px;
+    justify-content: center;
+
+    br {
+      display: block;
     }
   }
 
@@ -147,6 +199,10 @@
 
     @media (max-width: $tablet-width) {
       @include resize-txt(16, 20);
+    }
+
+    @media (max-width: $mobile-width) {
+      @include resize-txt(14, 17);
     }
   }
 }

@@ -7,6 +7,14 @@
   margin: 0 auto;
   z-index: 1;
 
+  @media (max-width: $tablet-width) {
+    padding: 133px 8px 59px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding: 133px 4px 59px;
+  }
+
   &::after,
   &::before {
     position: absolute;

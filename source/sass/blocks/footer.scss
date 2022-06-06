@@ -1,7 +1,15 @@
 .footer {
   flex: 0 0 auto;
-  padding-top: 212px;
+  padding-top: 224px;
   position: relative;
+
+  @media (max-width: $tablet-width) {
+    padding-top: 257px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding-top: 71px;
+  }
 
   &::before {
     position: absolute;
@@ -9,6 +17,15 @@
     top: 14px;
     left: calc((100% - 1587px) / 2);
     z-index: -1;
+
+    @media (max-width: $tablet-width) {
+      left: -70px;
+      top: 62px;
+    }
+
+    @media (max-width: $mobile-width) {
+      display: none;
+    }
   }
 }
 
@@ -17,10 +34,15 @@
   min-height: 216px;
   background-color: $main-white;
   padding: 55px 0 35px;
+
+  @media (max-width: $mobile-width) {
+    min-height: 285px;
+    padding: 47px 7px 35px;
+  }
 }
 
 .footer__content {
-  width: 543px;
+  max-width: 543px;
   min-height: 106px;
   margin: 0 auto;
   display: flex;
@@ -36,9 +58,17 @@
 .footer__contact-item {
   margin-bottom: 20px;
 
+  @media (max-width: $mobile-width) {
+    margin-bottom: 23px;
+  }
+
   a {
     @include font(18, 22, 600);
     color: $main-black;
+
+    @media (max-width: $mobile-width) {
+      @include resize-txt(16, 20);
+    }
 
     &:hover,
     &:focus-visible {
@@ -55,9 +85,21 @@
   width: 179px;
   right: 0;
   bottom: 20px;
+
+  @media (max-width: $mobile-width) {
+    position: static;
+  }
 }
 
 .footer__social-item {
+
+  @media (max-width: $mobile-width) {
+
+    img {
+      width: 43px;
+      height: 44px;
+    }
+  }
 
   &:hover {
     img {

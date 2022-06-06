@@ -11,12 +11,29 @@
 
     @media (max-width: 1279px) {
       background-image: url("../img/icons/icon-burger.svg");
+      width: 61px;
+      height: 21px;
+    }
+
+    @media (max-width: $tablet-width) {
+      right: 19px;
+    }
+
+    @media (max-width: $mobile-width) {
+      width: 31px;
+      right: 0;
     }
   }
 
   &--close {
     @media (max-width: 1279px) {
       background-image: url("../img/icons/icon-close.svg");
+      width: 34px;
+      height: 34px;
+    }
+
+    @media (max-width: $tablet-width) {
+      top: -10px;
     }
   }
 
@@ -24,18 +41,11 @@
   &--close {
 
     @media (max-width: 1279px) {
-      width: 34px;
-      height: 34px;
       background-repeat: no-repeat;
       display: block;
       margin-left: auto;
       position: relative;
       z-index: 5;
-
-      &:hover {
-        transition: $trans--300;
-        background-color: $vivid-yellow;
-      }
     }
   }
 
@@ -46,6 +56,11 @@
     border-radius: $radius10;
     color: $main-black;
     @include font(16, 20, 800);
+
+    @media (max-width: $mobile-width) {
+      width: 100%;
+      margin: 0 auto;
+    }
 
     &:hover,
     &:focus-visible {
@@ -64,6 +79,12 @@
     min-height: 64px;
     background-color: $vivid-yellow;
     color: $very-dark-blue;
+
+    @media (max-width: $mobile-width) {
+      width: 100%;
+      min-height: 54px;
+      @include resize-txt(14, 17);
+    }
 
     &:hover,
     &:focus-visible {

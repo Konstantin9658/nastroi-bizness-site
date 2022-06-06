@@ -1,29 +1,41 @@
 .intro {
-  background-image: url("../img/decor/bcg-intro.svg");
-  background-repeat: no-repeat;
-  background-position: right -38px;
+  // background-image: url("../img/decor/bcg-intro.svg");
+  // background-repeat: no-repeat;
+  // background-position: right -38px;
   max-width: 1460px;
   margin: 0 auto;
-  padding: 0 0 30px 0;
+  padding: 0 0 100px 0;
   min-height: 605px;
 
   @media (max-width: $tablet-width) {
-    min-height: 1174px;
-    background-position: right bottom;
-    background-size: 766px 645px;
+    min-height: 1128px;
+    // background-position: right bottom;
+    // background-size: 766px 645px;
+  }
+
+  @media (max-width: $mobile-width) {
+    min-height: 686px;
   }
 }
 
 .intro__wrapper {
   max-width: 711px;
   width: 100%;
-  padding-top: 86px;
+  padding-top: 103px;
 
   @media (max-width: $tablet-width) {
-    padding-top: 63px;
+    padding-top: 70px;
+  }
 
-    button {
-      margin-top: 24px;
+  @media (max-width: $mobile-width) {
+    padding-top: 65px;
+  }
+
+  button {
+    margin-top: 25px;
+
+    @media (max-width: $mobile-width) {
+      margin-top: 10px;
     }
   }
 
@@ -36,6 +48,15 @@
     @include font(50, 61, 900);
     color: $vivid-yellow;
     padding-bottom: 37px;
+
+    @media (max-width: $tablet-width) {
+      padding-bottom: 62px;
+    }
+
+    @media (max-width: $mobile-width) {
+      @include resize-txt(26, 32);
+      padding-bottom: 23px;
+    }
   }
 }
 
@@ -43,10 +64,23 @@
 .intro__desc {
   @include font(28, 34, 500);
   color: $main-white;
-  padding-bottom: 42px;
+  padding-bottom: 34px;
+
+  @media (max-width: $tablet-width) {
+    padding-bottom: 42px;
+  }
+
+  @media (max-width: $mobile-width) {
+    @include resize-txt(18, 22);
+    padding-bottom: 15px;
+  }
 
   span {
     @include resize-txt(20, 24);
     color: $vivid-yellow;
+
+    @media (max-width: $mobile-width) {
+      @include resize-txt(16, 20);
+    }
   }
 }

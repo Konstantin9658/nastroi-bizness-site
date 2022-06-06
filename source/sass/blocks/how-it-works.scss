@@ -3,9 +3,26 @@
 
   &::before {
     position: absolute;
-    content: url("../img/decor/decor-coin-two.svg");
+    content: "";
+    background-image: url("../img/decor/decor-coin-two.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 254px;
+    height: 255px;
     bottom: 0;
     left: -109px;
+    z-index: -1;
+
+    @media (max-width: $tablet-width) {
+      width: 192px;
+      height: 190px;
+      bottom: -50px;
+      left: 17px;
+    }
+
+    @media (max-width: $mobile-width) {
+      display: none;
+    }
   }
 }
 
@@ -17,10 +34,19 @@
   border: 1px solid $light-gray;
   @include flex-center;
 
+  @media (max-width: $mobile-width) {
+    min-height: 59px;
+    margin-top: 60px;
+  }
+
   h2 {
     margin: 0;
     @include font(48, 59, 800);
     color: $light-gray;
+
+    @media (max-width: $mobile-width) {
+      @include resize-txt(26, 32);
+    }
   }
 }
 
@@ -32,6 +58,15 @@
   padding: 0;
   counter-reset: section;
   list-style-type: none;
+  margin-bottom: 8px;
+
+  @media (max-width: $tablet-width) {
+    margin-top: 91px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-top: 35px;
+  }
 }
 
 .how-it-works__item {
@@ -42,13 +77,6 @@
   margin-bottom: 70px;
   display: flex;
   flex-direction: column;
-
-  h3 {
-    margin: 0;
-    @include font(20, 24, 900);
-    color: $title-features;
-    text-align: right;
-  }
 
   @media (min-width: 1181px) {
 
@@ -64,10 +92,35 @@
     }
   }
 
+  @media (max-width: $tablet-width) {
+    margin-bottom: 90px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-right: 0;
+    margin-bottom: 80px;
+    min-height: 219px;
+  }
+
   &:last-child {
-    width: 716px;
+    max-width: 716px;
+    width: 100%;
     align-self: center;
     margin-right: 0;
+
+    @media (max-width: $mobile-width) {
+
+      &::before {
+        color: $title-features;
+      }
+    }
+  }
+
+  h3 {
+    margin: 0;
+    @include font(20, 24, 900);
+    color: $title-features;
+    text-align: right;
   }
 
   &::before {
@@ -78,6 +131,10 @@
     color: $light-gray;
     top: 0;
     left: 0;
+
+    @media (max-width: $mobile-width) {
+      content: counters(section, "") "";
+    }
   }
 }
 
@@ -87,11 +144,21 @@
   min-height: 72px;
   position: relative;
 
+  @media (max-width: $mobile-width) {
+    padding-left: 5px;
+  }
+
   &::after {
     position: absolute;
     content: url("../img/icons/icon-arrow-features.svg");
     right: 0;
     bottom: -76px;
+
+    @media (max-width: $mobile-width) {
+      content:  url("../img/icons/icon-arrow-features-s.svg");
+      right: 86px;
+      bottom: -73px;
+    }
   }
 }
 
@@ -101,15 +168,30 @@
   padding-top: 15px;
   padding-right: 56px;
 
+  @media (max-width: $mobile-width) {
+    margin-top: 89px;
+    padding-top: 26px;
+    padding-right: 20px;
+    padding-left: 5px;
+  }
+
   p {
     @include font(16, 20, 600);
     color: $light-gray;
     margin: 0;
+
+    @media (max-width: $mobile-width) {
+
+      br {
+        display: none;
+      }
+    }
   }
 }
 
 .how-it-works__finish {
-  width: 523px;
+  max-width: 523px;
+  width: 100%;
   margin-left: auto;
 
   h3,
@@ -119,8 +201,32 @@
     color: $title-card;
     margin: 0;
   }
+
+  h3 {
+
+    @media (max-width: $mobile-width) {
+      @include resize-txt(30, 37);
+      margin-left: auto;
+      min-height: 30px;
+      margin-right: 17px;
+      width: max-content;
+    }
+  }
+
+  p {
+
+    @media (max-width: $mobile-width) {
+      @include resize-txt(25, 30);
+    }
+  }
 }
 
 .how-it-works__finish-content {
   border-top: 8px solid $title-card;
+
+  @media (max-width: $mobile-width) {
+    border-width: 5px;
+    margin-top: 124px;
+    padding-top: 26px;
+  }
 }

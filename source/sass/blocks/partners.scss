@@ -1,5 +1,16 @@
-.partners {
-  padding-top: 46px;
+.partners__title {
+  position: relative;
+  padding-top: 55px;
+
+  @media (max-width: $tablet-width) {
+    margin-top: 73px;
+    padding-top: 48px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-top: 0;
+    padding-top: 41px;
+  }
 
   h2 {
     @include font(48, 59, 800);
@@ -7,33 +18,77 @@
     margin: 0;
     text-align: center;
     padding-bottom: 18px;
+
+    @media (max-width: $mobile-width) {
+      @include resize-txt(26, 32);
+    }
   }
 }
 
 .partners__wrapper {
-  padding-top: 77px;
-  min-height: 550px;
+  padding-top: 121px;
+  max-width: 1170px;
+  min-height: 860px;
+  margin: 0 auto;
   background-image: url("../img/decor/decor-partners-frame.svg");
   background-repeat: no-repeat;
   background-position: center;
   margin-bottom: 91px;
+
+  @media (max-width: $tablet-width) {
+    padding-top: 81px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding-top: 38px;
+  }
 }
 
 .partners__cards {
   @include reset-list;
-  max-width: 920px;
+  max-width: 1082px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   grid-template-rows: auto;
+  justify-items: center;
   gap: 16px;
+
+  @media (max-width: $tablet-width) {
+    width: 100%;
+    gap: 30px;
+  }
+
+  @media (max-width: $mobile-width) {
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+    row-gap: 15px;
+    column-gap: 20px;
+  }
 }
 
 .partners__card {
-  width: 218px;
-  min-height: 115px;
+  width: 100%;
+  min-height: 144px;
   background-color: $partners-card;
   @include flex-center;
+  padding: 30px 0;
+
+  @media (max-width: $tablet-width) {
+    padding: 0;
+
+    &:first-child {
+      display: none;
+    }
+  }
+
+  @media (max-width: $mobile-width) {
+    min-height: 93px;
+    padding: 18px 8px;
+
+    &:nth-child(4) {
+      display: none;
+    }
+  }
 
   p {
     @include font(16, 20, 800);
