@@ -22,12 +22,13 @@
   <link rel="preload" href="fonts/montserrat-alternates-black.woff2" as="font" crossorigin="anonymous">
   <link rel="preload" href="fonts/montserrat-alternates-regular.woff2" as="font" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.min.css">
+  <script async="" defer="" src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 
 <body class="page__body">
   <header class="header">
     <div class="header__wrapper container">
-      <svg class="header__logo" width="149" height="25" role="img">
+      <svg class="header__logo" width="168" height="17" role="img">
         <use xlink:href="img/sprite.svg#icon-logo"></use>
       </svg>
       <nav class="header__nav nav">
@@ -91,7 +92,8 @@
             Предоставляем услуги Управляющей компании для ИП и организаций, работающих в сегментах HoReCa и b2c.
           </p>
           <p class="intro__desc"><span>Работаем на рынке консалтинговых услуг с 2014 года.</span></p>
-          <button type="button" class="button button--order">Заказать консультацию</button>
+          <!-- <button type="button" class="button button--order">Заказать консультацию</button> -->
+          <a href="#form" class="button button--order">Заказать консультацию</a>
         </div>
       </div>
     </section>
@@ -138,7 +140,8 @@
           <p>
             Проработаем индивидуально под вашу компанию чек-лист, проведём по нему аудит, предоставим данные вам.
           </p>
-          <button type="button" class="button button--order">Заказать консультацию</button>
+          <!-- <button type="button" class="button button--order">Заказать консультацию</button> -->
+          <a href="#form" class="button button--order">Заказать консультацию</a>
         </div>
       </div>
     </section>
@@ -366,11 +369,11 @@
         </ul>
       </div>
     </section>
-    <section class="callback">
+    <section class="callback" id="form">
       <h2 class="visually-hidden">Форма обратной связи</h2>
-      <form class="form" action="#" method="post" id="#call">
+      <form class="form" action="https://gooddeloNotify.tojefin.repl.co/api/v1/sendform/" method="post">
         <div class="form__wrapper">
-          <p>Осталось связаться с нами</p>
+          <p class="form__message">Осталось связаться с нами</p>
           <ul class="form__fields">
             <li class="form__fields-item">
               <label class="visually-hidden" for="name-field">Имя</label>
@@ -389,7 +392,10 @@
               <textarea name="Comment" id="comment-field" placeholder="Комментарий"></textarea>
             </li>
           </ul>
-          <button type="submit" class="button button--submit">Отправить</button>
+          <div class="g-recaptcha form__recaptcha" data-sitekey="6LdiGJ0fAAAAAGB60zFAAJHe42tdkT8M62yFsgMo" data-callback="enableBtn">
+          </div>
+          <input type="text" value="0" hidden="" id="token" name="token">
+          <button type="submit" class="button button--submit" id="submit" disabled="">Отправить</button>
         </div>
       </form>
     </section>
@@ -432,6 +438,12 @@
     </div>
   </footer>
   <script type="module" src="js/bundle.js"></script>
+  <script type="text/javascript">
+    function enableBtn(token){
+      document.getElementById("submit").disabled = false;
+      document.getElementById("token").value = token;
+    }
+  </script>
 </body>
 
 </html>
