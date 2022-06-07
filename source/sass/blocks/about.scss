@@ -18,6 +18,10 @@
       width: 189px;
       height: 190px;
     }
+
+    @media (max-width: $mobile-width) {
+      display: none;
+    }
   }
 
   &::after {

@@ -11,6 +11,7 @@
 
     @media (max-width: 1279px) {
       background-image: url("../img/icons/icon-burger.svg");
+      background-size: cover;
       width: 61px;
       height: 21px;
     }
@@ -20,7 +21,8 @@
     }
 
     @media (max-width: $mobile-width) {
-      width: 31px;
+      width: 30px;
+      height: 14px;
       right: 0;
     }
   }
@@ -33,7 +35,7 @@
     }
 
     @media (max-width: $tablet-width) {
-      top: -10px;
+      top: 10px;
     }
   }
 
@@ -74,8 +76,10 @@
   }
 
   &--order {
+    @include flex-center;
     @include font(16, 20, 700);
-    width: 353px;
+    max-width: 353px;
+    width: 100%;
     min-height: 64px;
     background-color: $vivid-yellow;
     color: $very-dark-blue;

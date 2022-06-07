@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const main = document.querySelector('.main');
   const menuItems = document.querySelectorAll('.nav__item a');
   const inputPhone = document.querySelector('#phone-field');
+  const form = document.querySelector('.form');
+  const inputs = Array.from(form.querySelectorAll('input'));
+  const recaptcha = form.querySelector('.form__recaptcha');
 
   const KEYCODE_TAB = 9;
 
@@ -74,6 +77,78 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  const checkValue = input => input.value !== '';
+
+  form.addEventListener('input', () => {
+    if (inputs.every(checkValue)) {
+      recaptcha.classList.add('form__recaptcha--show');
+    } else {
+      recaptcha.classList.remove('form__recaptcha--show');
+    }
+  });
+
+  form.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+
+    const formMessage = form.querySelector('.form__message');
+    const btnSubmit = form.querySelector('#submit');
+    const load = document.createElement('img');
+
+    const message = {
+      loading: ['../img/icons/icon-spinner.svg', 'Отправка...'],
+      success: 'Заявка успешно отправлена',
+      error: 'Упс... Что-то пошло не так...',
+      default: 'Осталось связаться с нами',
+    };
+
+    const showMessage = (status) => {
+      switch (status) {
+        case (message.loading):
+          load.src = message.loading[0];
+          formMessage.textContent = message.loading[1];
+          btnSubmit.style.display = 'none';
+          btnSubmit.insertAdjacentElement('afterend', load);
+          break;
+        case (message.success):
+          formMessage.textContent = message.success;
+          break;
+        case (message.error):
+          formMessage.textContent = message.error;
+          break;
+        default:
+          formMessage.textContent = message.default;
+      }
+    };
+
+    showMessage(message.loading);
+
+    const formData = new FormData(form);
+    const URL = 'https://gooddeloNotify.tojefin.repl.co/api/v1/sendform/';
+
+    let data = new URLSearchParams();
+
+    for (let pair of formData) {
+        data.append(pair[0], pair[1]);
+    }
+
+    data.append('getStatus', 'true');
+
+    fetch(URL, {
+        method: 'post',
+        body: data,
+    }).then(() => {
+      showMessage(message.success);
+    }).catch(() => {
+      showMessage(message.error);
+    }).finally(() => {
+      form.reset();
+      setTimeout(() => showMessage(message.default), 3000);
+      btnSubmit.style.display = 'block';
+      load.remove();
+      recaptcha.classList.remove('form__recaptcha--show');
+    });
+  });
+
   btnMenu.addEventListener('click', openOrCloseMenu);
   menuItems.forEach(item => item.addEventListener('click', openOrCloseMenu));
 
@@ -82,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
       openOrCloseMenu();
     }
   });
-
   validateInput(inputPhone, '+7 (999) 999-99-99');
   new Swiper('.swiper', swiperOptions);
 });

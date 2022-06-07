@@ -28,19 +28,21 @@
 .partners__wrapper {
   padding-top: 121px;
   max-width: 1170px;
-  min-height: 860px;
+  min-height: auto;
   margin: 0 auto;
   background-image: url("../img/decor/decor-partners-frame.svg");
   background-repeat: no-repeat;
   background-position: center;
-  margin-bottom: 91px;
+  margin-bottom: 152px;
 
   @media (max-width: $tablet-width) {
     padding-top: 81px;
+    margin-bottom: 100px;
   }
 
   @media (max-width: $mobile-width) {
     padding-top: 38px;
+    margin-bottom: 50px;
   }
 }
 

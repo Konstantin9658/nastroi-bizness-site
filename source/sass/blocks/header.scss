@@ -15,12 +15,13 @@
   }
 
   @media (max-width: $tablet-width) {
-    background-color: $grayish-blue;
+    background-color: #8c8c8c;
     min-height: 104px;
   }
 
   @media (max-width: $mobile-width) {
     min-height: 80px;
+    min-height: 44px;
   }
 }
 
@@ -29,10 +30,5 @@
 }
 
 .header__logo {
-  margin-right: 70px;
-
-  @media (max-width: $tablet-width) {
-    width: 214px;
-    height: 36px;
-  }
+  margin-right: 50px;
 }

@@ -1,20 +1,58 @@
 .intro {
-  // background-image: url("../img/decor/bcg-intro.svg");
-  // background-repeat: no-repeat;
-  // background-position: right -38px;
-  max-width: 1460px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 0 100px 0;
   min-height: 605px;
+  position: relative;
 
   @media (max-width: $tablet-width) {
     min-height: 1128px;
-    // background-position: right bottom;
-    // background-size: 766px 645px;
   }
 
   @media (max-width: $mobile-width) {
     min-height: 686px;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    background-image: url("../img/decor/decor-intro-money.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 832px;
+    height: 366px;
+    right: calc((100% - 1681px) / 2);
+    bottom: 91px;
+    z-index: -1;
+
+    @media (max-width: $tablet-width) {
+      right: calc((100% - 838px) / 2);
+      bottom: 139px;
+    }
+
+    @media (max-width: $mobile-width) {
+      right: calc((100% - 356px) / 2);
+      bottom: 70px;
+      width: 353px;
+      height: 164px;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    content: url("../img/decor/decor-intro-backlight.svg");
+    z-index: -2;
+    bottom: -50px;
+    right: calc((100% - 1800px) / 2);
+
+    @media (max-width: $tablet-width) {
+      right: calc((100% - 1214px) / 2);
+    }
+
+    @media (max-width: $mobile-width) {
+      right: calc((100% - 1067px) / 2);
+      bottom: -171px;
+    }
   }
 }
 
@@ -28,7 +66,7 @@
   }
 
   @media (max-width: $mobile-width) {
-    padding-top: 65px;
+    padding-top: 38px;
   }
 
   button {
@@ -56,6 +94,34 @@
     @media (max-width: $mobile-width) {
       @include resize-txt(26, 32);
       padding-bottom: 23px;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    background-image: url("../img/decor/decor-intro-diagram.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 1029px;
+    height: 454px;
+    opacity: 0.25;
+    z-index: -3;
+    right: calc((100% - 1788px) / 2);
+    bottom: 142px;
+
+    @media (max-width: $tablet-width) {
+      right: calc((100% - 957px) / 2);
+      width: 901px;
+      height: 473px;
+      bottom: 147px;
+    }
+
+    @media (max-width: $mobile-width) {
+      width: 386px;
+      height: 162px;
+      bottom: 119px;
+      right: calc((100% - 406px) / 2);
     }
   }
 }
