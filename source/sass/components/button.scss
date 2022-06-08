@@ -41,6 +41,10 @@
       top: -15px;
       right: 0;
     }
+
+    @media (max-width: $mobile-width) {
+      top: 15px;
+    }
   }
 
   &--burger,
