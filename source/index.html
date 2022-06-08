@@ -12,7 +12,7 @@
   <meta property="og:url" content="https://gideone.ru/"/>
   <meta property="og:title" content="Автоматизация системы управления персоналом | HRM-системы | 15 дней бесплатно"/>
   <meta property="og:description" content="Пробный период 15 дней бесплатно. Автоматизированная система управления качеством работы персонала. Максимальный средний чек и LTV за счёт роботизированного управления стандартами работы. Звоните: 8(996)737-99-12"/> -->
-  <!-- <meta name="robots" content="index, follow"/> -->
+  <meta name="robots" content="index, follow"/>
   <link rel="icon" href="favicon.ico">
   <!-- <link rel="icon" href="icon.svg" type="image/svg+xml"> -->
   <link rel="preload" href="fonts/montserrat-alternates-medium.woff2" as="font" crossorigin="anonymous">
@@ -92,8 +92,7 @@
             Предоставляем услуги Управляющей компании для ИП и организаций, работающих в сегментах HoReCa и b2c.
           </p>
           <p class="intro__desc"><span>Работаем на рынке консалтинговых услуг с 2014 года.</span></p>
-          <!-- <button type="button" class="button button--order">Заказать консультацию</button> -->
-          <a href="#form" class="button button--order">Заказать консультацию</a>
+          <button type="button" class="button button--order" data-modal>Заказать консультацию</button>
         </div>
       </div>
     </section>
@@ -140,8 +139,7 @@
           <p>
             Проработаем индивидуально под вашу компанию чек-лист, проведём по нему аудит, предоставим данные вам.
           </p>
-          <!-- <button type="button" class="button button--order">Заказать консультацию</button> -->
-          <a href="#form" class="button button--order">Заказать консультацию</a>
+          <button type="button" class="button button--order" data-modal>Заказать консультацию</button>
         </div>
       </div>
     </section>
@@ -377,28 +375,30 @@
       <form class="form" action="https://gooddeloNotify.tojefin.repl.co/api/v1/sendform/" method="post">
         <div class="form__wrapper">
           <p class="form__message">Осталось связаться с нами</p>
-          <ul class="form__fields">
-            <li class="form__fields-item">
-              <label class="visually-hidden" for="name-field">Имя</label>
-              <input type="text" name="Name" id="name-field" placeholder="Имя*" required/>
-            </li>
-            <li class="form__fields-item">
-              <label class="visually-hidden" for="phone-field">Телефон</label>
-              <input type="tel" name="Phone" id="phone-field" placeholder="Телефон*" required/>
-            </li>
-            <li class="form__fields-item">
-              <label class="visually-hidden" for="email-field">Email</label>
-              <input type="email" name="Email" id="email-field" placeholder="Почта*" required/>
-            </li>
-            <li class="form__fields-item">
-              <label class="visually-hidden" for="comment-field">Комментарий</label>
-              <textarea name="Comment" id="comment-field" placeholder="Комментарий"></textarea>
-            </li>
-          </ul>
-          <div class="g-recaptcha form__recaptcha"
-            data-sitekey="6LdiGJ0fAAAAAGB60zFAAJHe42tdkT8M62yFsgMo" data-callback="enableBtn">
+          <div class="form__inner">
+            <ul class="form__fields">
+              <li class="form__fields-item">
+                <label class="visually-hidden" for="name-field">Имя</label>
+                <input type="text" name="Name" id="name-field" placeholder="Имя*" required/>
+              </li>
+              <li class="form__fields-item">
+                <label class="visually-hidden" for="phone-field">Телефон</label>
+                <input type="tel" name="Phone" id="phone-field" placeholder="Телефон*" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" required/>
+              </li>
+              <li class="form__fields-item">
+                <label class="visually-hidden" for="email-field">Email</label>
+                <input type="email" name="Email" id="email-field" placeholder="Почта*" required/>
+              </li>
+              <li class="form__fields-item">
+                <label class="visually-hidden" for="comment-field">Комментарий</label>
+                <textarea name="Comment" id="comment-field" placeholder="Комментарий"></textarea>
+              </li>
+            </ul>
+            <div class="g-recaptcha form__recaptcha"
+              data-sitekey="6LdiGJ0fAAAAAGB60zFAAJHe42tdkT8M62yFsgMo" data-callback="enableBtn">
+            </div>
           </div>
-          <input type="text" value="0" hidden id="token" name="token">
+          <input type="text" value="0" hidden id="token" name="">
           <button type="submit" class="button button--submit" id="submit" disabled>Отправить</button>
         </div>
       </form>
@@ -441,11 +441,52 @@
       </div>
     </div>
   </footer>
+  <div class="popup">
+    <div class="popup__wrapper">
+      <button type="button" class="button button--close button--modal" data-close></button>
+      <form action="https://gooddeloNotify.tojefin.repl.co/api/v1/sendform/" method="post" class="form form--modal">
+        <div class="form__wrapper form__wrapper--modal">
+          <p class="form__message form__message--modal">Заполните форму и мы свяжемся с Вами в течении 30 минут!</p>
+          <div class="form__inner">
+            <ul class="form__fields">
+              <li class="form__fields-item">
+                <label class="visually-hidden" for="name-modal">Имя</label>
+                <input type="text" name="Name" id="name-modal" placeholder="Имя*" required/>
+              </li>
+              <li class="form__fields-item">
+                <label class="visually-hidden" for="phone-modal">Телефон</label>
+                <input type="tel" name="Phone" id="phone-modal" placeholder="Телефон*" required/>
+              </li>
+              <li class="form__fields-item">
+                <label class="visually-hidden" for="email-modal">Email</label>
+                <input type="email" name="Email" id="email-modal" placeholder="Почта*" required/>
+              </li>
+              <li class="form__fields-item">
+                <label class="visually-hidden" for="comment-modal">Комментарий</label>
+                <textarea name="Comment" id="comment-modal" placeholder="Комментарий"></textarea>
+              </li>
+            </ul>
+            <div class="g-recaptcha form__recaptcha"
+              data-sitekey="6LdiGJ0fAAAAAGB60zFAAJHe42tdkT8M62yFsgMo" data-callback="enableBtnModal">
+            </div>
+          </div>
+          <input type="text" value="0" hidden id="token-modal" name="">
+          <button type="submit" class="button button--submit" id="submit-modal" disabled>Отправить</button>
+        </div>
+      </form>
+    </div>
+  </div>
   <script type="module" src="js/bundle.js"></script>
   <script type="text/javascript">
     function enableBtn(token){
       document.getElementById("submit").disabled = false;
       document.getElementById("token").value = token;
+    }
+  </script>
+  <script type="text/javascript">
+    function enableBtnModal(token){
+      document.getElementById("submit-modal").disabled = false;
+      document.getElementById("token-modal").value = token;
     }
   </script>
 </body>

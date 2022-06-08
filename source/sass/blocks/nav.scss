@@ -80,6 +80,7 @@
       opacity: 1;
       transition: $trans--300;
       visibility: visible;
+      overflow: auto;
 
       @media (max-width: $tablet-width) {
         width: 100%;

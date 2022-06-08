@@ -28,19 +28,24 @@
   }
 
   &--close {
+    background-image: url("../img/icons/icon-close.svg");
+    width: 34px;
+    height: 34px;
+
     @media (max-width: 1279px) {
-      background-image: url("../img/icons/icon-close.svg");
-      width: 34px;
-      height: 34px;
+      top: 20px;
+      right: -15px;
     }
 
     @media (max-width: $tablet-width) {
-      top: 10px;
+      top: -15px;
+      right: 0;
     }
   }
 
   &--burger,
   &--close {
+    background-repeat: no-repeat;
 
     @media (max-width: 1279px) {
       background-repeat: no-repeat;
@@ -51,7 +56,8 @@
     }
   }
 
-  &--submit {
+  &--submit,
+  &--ok {
     width: 286px;
     min-height: 53px;
     border: 2px solid $main-black;
@@ -116,5 +122,22 @@
         --hover: #ffe266;
       }
     }
+  }
+
+  &--modal {
+    top: 15px;
+    position: absolute;
+    z-index: 5;
+    right: 5px;
+
+    @media (max-width: $mobile-width) {
+      right: 0;
+    }
+  }
+
+  &--ok {
+    margin-top: 34px;
+    margin: 34px auto 0;
+    @include flex-center;
   }
 }
