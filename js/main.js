@@ -8,10 +8,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const menu = document.querySelector('.nav__wrapper');
   const main = document.querySelector('.main');
   const menuItems = document.querySelectorAll('.nav__item a');
-  const inputPhone = document.querySelector('#phone-field');
+
   const form = document.querySelector('.form');
+  const inputPhone = form.querySelector('#phone-field');
   const inputs = Array.from(form.querySelectorAll('input'));
   const recaptcha = form.querySelector('.form__recaptcha');
+
+  const formModal = document.querySelector('.form--modal');
+  const inputPhoneModal = formModal.querySelector('#phone-modal');
+  const recaptchaModal = formModal.querySelector('.form__recaptcha');
+  const inputsModal = Array.from(formModal.querySelectorAll('input'));
+
+  const btnsShowModal = document.querySelectorAll('[data-modal]');
+  const btnCloseModal = document.querySelector('[data-close]');
+  const popup = document.querySelector('.popup');
 
   const KEYCODE_TAB = 9;
 
@@ -57,6 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
     inputPhoneMask.mask(element);
   };
 
+  const toggleClass = (item, toggleClass) => {
+    item.classList.toggle(toggleClass);
+  };
+
   const checkStateBtn = () => {
     if (btnMenu.classList.contains('button--burger')) {
       btnMenu.classList.remove('button--burger');
@@ -69,45 +83,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const openOrCloseMenu = () => {
     if (window.innerWidth < 1279) {
-      menu.classList.toggle('nav__wrapper--show');
-      main.classList.toggle('blur');
-      body.classList.toggle('page__body--hidden');
+      toggleClass(menu, 'nav__wrapper--show');
+      toggleClass(main, 'blur');
+      toggleClass(body, 'page__body--hidden');
       checkStateBtn();
       trapFocus(nav);
     }
   };
 
-  const checkValue = input => input.value !== '';
+  const checkValueInput = input => input.value !== '';
 
-  form.addEventListener('input', () => {
-    if (inputs.every(checkValue)) {
-      recaptcha.classList.add('form__recaptcha--show');
+  const showCaptcha = (inputs, captcha) => {
+    if (inputs.every(checkValueInput)) {
+      captcha.classList.add('form__recaptcha--show');
     } else {
-      recaptcha.classList.remove('form__recaptcha--show');
+      captcha.classList.remove('form__recaptcha--show');
     }
-  });
+  };
 
-  form.addEventListener('submit', (evt) => {
+  const showOrHideModal = () => {
+    toggleClass(popup, 'popup--show');
+    toggleClass(main, 'blur');
+    toggleClass(body, 'page__body--hidden');
+  };
+
+  const postData = (evt, form, captcha, btnId) => {
     evt.preventDefault();
 
     const formMessage = form.querySelector('.form__message');
-    const btnSubmit = form.querySelector('#submit');
-    const load = document.createElement('img');
+    const btnSubmit = form.querySelector(btnId);
+    const spinner = document.createElement('img');
 
     const message = {
       loading: ['../img/icons/icon-spinner.svg', 'Отправка...'],
       success: 'Заявка успешно отправлена',
       error: 'Упс... Что-то пошло не так...',
       default: 'Осталось связаться с нами',
+      defaultModal: 'Заполните форму и мы свяжемся с Вами в течении 30 минут!',
     };
 
     const showMessage = (status) => {
       switch (status) {
         case (message.loading):
-          load.src = message.loading[0];
+          spinner.src = message.loading[0];
           formMessage.textContent = message.loading[1];
           btnSubmit.style.display = 'none';
-          btnSubmit.insertAdjacentElement('afterend', load);
+          btnSubmit.insertAdjacentElement('afterend', spinner);
           break;
         case (message.success):
           formMessage.textContent = message.success;
@@ -115,8 +136,12 @@ document.addEventListener('DOMContentLoaded', () => {
         case (message.error):
           formMessage.textContent = message.error;
           break;
+        case (message.defaultModal):
+          formMessage.textContent = message.defaultModal;
+          break;
         default:
           formMessage.textContent = message.default;
+          break;
       }
     };
 
@@ -142,21 +167,40 @@ document.addEventListener('DOMContentLoaded', () => {
       showMessage(message.error);
     }).finally(() => {
       form.reset();
-      setTimeout(() => showMessage(message.default), 3000);
+      setTimeout(() => {
+        if (form === formModal) {
+          showMessage(message.defaultModal);
+          showOrHideModal();
+        } else {
+          showMessage(message.default);
+        }
+      }, 3000);
       btnSubmit.style.display = 'block';
-      load.remove();
-      recaptcha.classList.remove('form__recaptcha--show');
+      spinner.remove();
+      toggleClass(captcha, 'form__recaptcha--show');
     });
-  });
+  };
+
+  new Swiper('.swiper', swiperOptions);
+
+  validateInput(inputPhone, '+7 (999) 999-99-99');
+  validateInput(inputPhoneModal, '+7 (999) 999-99-99');
 
   btnMenu.addEventListener('click', openOrCloseMenu);
+  btnCloseModal.addEventListener('click', showOrHideModal);
+
+  btnsShowModal.forEach(btn => btn.addEventListener('click', showOrHideModal));
   menuItems.forEach(item => item.addEventListener('click', openOrCloseMenu));
 
-  menu.addEventListener('click', (e) => {
-    if (btnMenu.classList.contains('button--close') && e.target.classList.contains('nav__wrapper--show')) {
+  form.addEventListener('input', () => showCaptcha(inputs, recaptcha));
+  form.addEventListener('submit', (evt) => postData(evt, form, recaptcha, '#submit'));
+
+  formModal.addEventListener('input', () => showCaptcha(inputsModal, recaptchaModal));
+  formModal.addEventListener('submit', (evt) => postData(evt, formModal, recaptchaModal, '#submit-modal'));
+
+  menu.addEventListener('click', (evt) => {
+    if (btnMenu.classList.contains('button--close') && evt.target.classList.contains('nav__wrapper--show')) {
       openOrCloseMenu();
     }
   });
-  validateInput(inputPhone, '+7 (999) 999-99-99');
-  new Swiper('.swiper', swiperOptions);
 });
