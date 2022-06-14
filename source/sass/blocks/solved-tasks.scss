@@ -97,8 +97,10 @@
 .solved-tasks__item {
   background: $gradient-card;
   min-width: 499px;
+  // min-width: 747px;
   min-height: 344px;
-  padding: 34px 23px 34px 50px;
+  // padding: 34px 23px 34px 50px;
+  padding: 34px 23px 34px 20px;
   // margin-right: 20px;
   margin-bottom: 75px;
   position: relative;

@@ -92,7 +92,7 @@
   margin: 0 auto;
 
   @media (max-width: $mobile-width) {
-    padding: 0 1px;
+    padding: 0 10px;
   }
 
   h2,
@@ -189,6 +189,7 @@
     color: $title-card;
     padding-bottom: 15px;
     text-align: center;
+    text-transform: uppercase;
 
     @media (max-width: $tablet-width) {
       @include resize-txt(18, 22);

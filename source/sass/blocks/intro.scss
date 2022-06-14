@@ -24,6 +24,7 @@
     right: calc((100% - 1681px) / 2);
     bottom: 91px;
     z-index: -1;
+    transform: rotate3d(0, 1, 0, 180deg);
 
     @media (max-width: $tablet-width) {
       right: calc((100% - 838px) / 2);
@@ -131,6 +132,7 @@
   @include font(28, 34, 500);
   color: $main-white;
   padding-bottom: 34px;
+  padding-right: 50px;
 
   @media (max-width: $tablet-width) {
     padding-bottom: 42px;
@@ -139,6 +141,7 @@
   @media (max-width: $mobile-width) {
     @include resize-txt(18, 22);
     padding-bottom: 15px;
+    padding-right: 30px;
   }
 
   span {
